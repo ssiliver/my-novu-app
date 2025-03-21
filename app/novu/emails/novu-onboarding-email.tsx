@@ -155,3 +155,11 @@ export default NovuWelcomeEmail;
 export function renderEmail(controls: ControlSchema, payload: PayloadSchema) {
   return render(<NovuWelcomeEmail {...controls} {...payload} />);
 }
+
+export function renderSms(controls: ControlSchema, payload: PayloadSchema) {
+  return `SBI Life update: Your application has been received. ${payload.inAppSubject ? `Re: ${payload.inAppSubject}` : ''} ${payload.courseName ? `Name: ${payload.courseName}` : ''}`;
+}
+
+export function renderWhatsApp(controls: ControlSchema, payload: PayloadSchema) {
+  return `SBI Life update: Your application has been received. ${payload.inAppSubject ? `Re: ${payload.inAppSubject}` : ''} ${payload.inAppSubject ? `Name: ${payload.inAppSubject}` : ''}`;
+}

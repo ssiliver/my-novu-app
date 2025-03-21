@@ -54,6 +54,71 @@ courseImage: z
   .url()
   .describe("Course thumbnail image")
   .optional(),
+
+phone: z
+  .string()
+  .describe("phonenumber")
+  .optional(),  
+});
+
+export const whatsapPayloadSchema = z.object({
+  inAppSubject: z
+    .string()
+    .describe("The subject of the notification")
+    .default("**LMS Email- By Saikrishna!**"),
+  inAppBody: z
+    .string()
+    .describe("The body of the notification")
+    .default("This is an in-app notification powered by Novu."),
+
+    lmscoursee: z
+    .string()
+    .url()
+    .default(
+      "https://react-email-demo-bdj5iju9r-resend.vercel.app/static/vercel-arrow.png",
+    ),
+    // LMS specific fields
+  courseName: z
+  .string()
+  .describe("Name of the course")
+  .default("Introduction to Programming"),
+
+  emailSubject: z
+  .string()
+  .describe("The subject line of the email")
+  .default("Welcome to Your New Course!"),
+
+emailBody: z
+  .string()
+  .describe("The main content of the email")
+  .default("We're excited to have you begin your learning journey with us."),
+
+
+instructorName: z
+  .string()
+  .describe("Name of the instructor")
+  .default("Dr. Smith"),
+
+dueDate: z
+  .string()
+  .describe("Assignment/Course due date")
+  .optional(),
+
+  courseCode: z
+  .string()
+  .describe("Unique course identifier")
+  .default("COURSE-101"),
+
+courseImage: z
+  .string()
+  .url()
+  .describe("Course thumbnail image")
+  .optional(),
+
+phone: z
+  .string()
+  .describe("phonenumber")
+  .optional(),  
 });
 
 export const emailControlSchema = z.object({
@@ -89,6 +154,7 @@ export const emailControlSchema = z.object({
         align: "left",
       },
       {
+        
         type: "button",
         text: "Edit Email",
         align: "center",
@@ -173,3 +239,13 @@ interface LMSEmailProps {
   grade?: number;
 }
 
+// export const smsPayloadSchema = {
+//   type: 'object',
+//   properties: {
+//     message: {
+//       type: 'string',
+//       description: 'The message to send in the SMS',
+//     },
+//   },
+//   required: ['message'],
+// };
